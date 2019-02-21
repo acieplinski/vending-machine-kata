@@ -24,10 +24,9 @@ public class VendingMachineOperatorTest {
         operator.addProductToShelve(new Product("chocolate bar", new BigDecimal("3.50")), 1);
 
         // then
-//        assertThat(operator.getShelve(1)).isNotNull();
-//        assertThat(operator.getShelve(1).size());
-
         assertNotNull(operator.getShelve(1));
+        assertEquals(operator.getShelve(1).get(0).getName(), new Product("chocolate bar", new BigDecimal("3.50")).getName());
+        assertEquals(operator.getShelve(1).get(0).getPrice(), new Product("chocolate bar", new BigDecimal("3.50")).getPrice());
     }
 
     @Test(expected = MixingProductsOnTheShelveException.class)

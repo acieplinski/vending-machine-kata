@@ -7,9 +7,7 @@ public class VendingMachineOperator {
     private ArrayList<Shelve> shelves = new ArrayList<>();
 
     public void addProductToShelve(Product product, int shelveIndex) {
-        ArrayList<Product> productsOnShelve = new ArrayList<>();
-        productsOnShelve = getShelve(shelveIndex);
-        System.out.println(productsOnShelve);
+        ArrayList<Product> productsOnShelve = getShelve(shelveIndex);
         productsOnShelve.add(product);
         setShelve(productsOnShelve, shelveIndex);
     }

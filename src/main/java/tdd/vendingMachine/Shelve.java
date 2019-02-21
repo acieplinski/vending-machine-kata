@@ -6,6 +6,10 @@ public class Shelve {
 
     ArrayList<Product> products;
 
+    public Shelve() {
+        products = new ArrayList<>();
+    }
+
     public ArrayList<Product> getProductsOnShelve() {
         return products;
     }
