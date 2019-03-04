@@ -7,9 +7,28 @@ public class VendingMachineOperator {
     private ArrayList<Shelve> shelves = new ArrayList<>();
 
     public void addProductToShelve(Product product, int shelveIndex) {
-        ArrayList<Product> productsOnShelve = getShelve(shelveIndex);
-        productsOnShelve.add(product);
-        setShelve(productsOnShelve, shelveIndex);
+        try {
+            ArrayList<Product> productsOnShelve = getShelve(shelveIndex);
+            if (!productsOnShelve.isEmpty()) {
+                compareProducts(product, productsOnShelve.get(0));
+            }
+            productsOnShelve.add(product);
+            setShelve(productsOnShelve, shelveIndex);
+        }
+        catch (MixingProductsOnTheShelveException e) {
+            e.printStackTrace();
+            System.out.println("You cannot mix products on the shelve");
+        }
+    }
+
+    private void compareProducts(Product product1, Product product2) throws MixingProductsOnTheShelveException {
+        if (product1.getName().equals(product2.getName()) &&
+            product1.getPrice().equals(product2.getPrice())) {
+            return;
+        }
+        else {
+            throw new MixingProductsOnTheShelveException();
+        }
     }
 
     private void setShelve(ArrayList<Product> productsOnShelve, int shelveIndex) {
