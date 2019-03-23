@@ -31,7 +31,7 @@ public class VendingMachineOperator {
         }
     }
 
-    private void setShelve(ArrayList<Product> productsOnShelve, int shelveIndex) {
+    void setShelve(ArrayList<Product> productsOnShelve, int shelveIndex) {
         shelves.get(shelveIndex).setProductsOnShelve(productsOnShelve);
     }
 
