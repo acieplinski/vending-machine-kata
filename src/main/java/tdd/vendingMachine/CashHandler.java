@@ -12,4 +12,8 @@ public class CashHandler {
     public int checkNumberOfCoins(Coins coin) {
         return coin.getCount();
     }
+
+    public void giveCoinBack(Coins coin) {
+        coin.getOneCoin();
+    }
 }

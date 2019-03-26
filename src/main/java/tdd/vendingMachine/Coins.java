@@ -21,6 +21,12 @@ public enum Coins {
         this.count++;
     }
 
+    public void getOneCoin() {
+        if (this.count > 0) {
+            this.count--;
+        }
+    }
+
     public int getCount() {
         return count;
     }
