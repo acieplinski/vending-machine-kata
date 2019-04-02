@@ -5,15 +5,18 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 public class CashHandlerTest {
 
+    private Purse purse;
     private CashHandler cashHandler;
 
     @Before
     public void before() {
-        cashHandler = new CashHandler();
+        purse = new Purse();
+        cashHandler = new CashHandler(purse);
 
         Product product = new Product("Water", new BigDecimal(1.60));
     }
@@ -29,14 +32,14 @@ public class CashHandlerTest {
         cashHandler.insertCoin(Coin.COIN_OF_1);
 
         // then
-        assertEquals(1, cashHandler.checkNumberOfCoins(Coin.COIN_OF_1));
+        assertThat(cashHandler.checkNumberOfCoins(Coin.COIN_OF_1)).isEqualTo(1);
     }
 
     @Test
     public void canGiveTheChange() {
         // given
         cashHandler.insertCoin(Coin.COIN_OF_2);
-        assertEquals(1, cashHandler.checkNumberOfCoins(Coin.COIN_OF_2));
+        assertThat(cashHandler.checkNumberOfCoins(Coin.COIN_OF_2)).isEqualTo(1);
 
         // when
         cashHandler.giveCoinBack(Coin.COIN_OF_2);

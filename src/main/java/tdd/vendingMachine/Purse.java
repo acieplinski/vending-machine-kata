@@ -5,9 +5,13 @@ import org.apache.commons.collections4.multiset.HashMultiSet;
 
 public class Purse {
 
-    MultiSet<Coin> coins;
+    private MultiSet<Coin> coins;
+
     Purse () {
         coins = new HashMultiSet<>();
     }
 
+    public MultiSet<Coin> getCoins() {
+        return coins;
+    }
 }

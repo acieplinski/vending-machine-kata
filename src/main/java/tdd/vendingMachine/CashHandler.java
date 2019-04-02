@@ -1,19 +1,26 @@
 package tdd.vendingMachine;
 
 public class CashHandler {
+
+    private Purse purse;
+
+    CashHandler(Purse purse) {
+        this.purse = purse;
+    }
+
     public void insertCoin(Coin coin) {
         if (coin.equals(Coin.OTHER_COIN)) {
             return;
         }
+        purse.getCoins().add(coin);
 
-        coin.addOneCoin();
     }
 
     public int checkNumberOfCoins(Coin coin) {
-        return coin.getCount();
+        return purse.getCoins().getCount(coin);
     }
 
     public void giveCoinBack(Coin coin) {
-        coin.getOneCoin();
+        purse.getCoins().remove(coin);
     }
 }
