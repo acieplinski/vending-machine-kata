@@ -1,19 +1,19 @@
 package tdd.vendingMachine;
 
 public class CashHandler {
-    public void insertCoin(Coins coin) {
-        if (coin.equals(Coins.OTHER_COIN)) {
+    public void insertCoin(Coin coin) {
+        if (coin.equals(Coin.OTHER_COIN)) {
             return;
         }
 
         coin.addOneCoin();
     }
 
-    public int checkNumberOfCoins(Coins coin) {
+    public int checkNumberOfCoins(Coin coin) {
         return coin.getCount();
     }
 
-    public void giveCoinBack(Coins coin) {
+    public void giveCoinBack(Coin coin) {
         coin.getOneCoin();
     }
 }
