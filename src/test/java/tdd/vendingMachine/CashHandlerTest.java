@@ -51,21 +51,6 @@ public class CashHandlerTest {
     @Test
     public void canPayWithProperAmountOfCoins() {
 
-        //initialize = one product on shelf no 21 with cost 3_00
-
-        //cashHandler.payForProduct(product);
-
-//        machine.insertCoin(Coin.COIN_OF_1);
-//        machine.insertCoin(Coin.COIN_OF_2);
-//
-//        product = machine.selectProduct(21); //cost is 3
-//
-//        //expect
-//        product is not null
-//        machine.getProductCount(21).is(0);
-//
-//        //machine.inset
-
         // jak zaimplementować płatność za produkt, by:
         // w runtime zapewnić opcję wyboru kolejnych monet np. z konsoli
         // w teście podać kolejne wrzucane monety
