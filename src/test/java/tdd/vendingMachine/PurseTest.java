@@ -1,12 +1,9 @@
 package tdd.vendingMachine;
 
-import org.hamcrest.Matchers;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import java.math.BigDecimal;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class PurseTest {
@@ -20,14 +17,16 @@ public class PurseTest {
 
     @Test
     public void canCountMoney() {
-        BigDecimal expected = new BigDecimal(9.0);
-
         // when
         purse.getCoins().add(Coin.COIN_OF_5);
         purse.getCoins().add(Coin.COIN_OF_2);
         purse.getCoins().add(Coin.COIN_OF_1,2);
 
         // then
-        assertThat(purse.getValue(), Matchers.comparesEqualTo(expected));
+        assertThat(purse.getValue()).isEqualTo("9.0");
+
+        //testy:
+        //załóż stan początkowy wrzutnika
+        //sprawdzaj, jakimi monetami wydasz resztę dla zadanej kwoty; albo rzuć exception
     }
 }
