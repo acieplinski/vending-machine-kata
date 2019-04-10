@@ -1,12 +1,12 @@
 package tdd.vendingMachine;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
 public class CashHandlerTest {
 
@@ -50,11 +50,17 @@ public class CashHandlerTest {
 
     @Test
     public void canPayWithProperAmountOfCoins() {
+        // given
+        BigDecimal requiredCash = new BigDecimal(1.80);
 
-        // jak zaimplementować płatność za produkt, by:
-        // w runtime zapewnić opcję wyboru kolejnych monet np. z konsoli
-        // w teście podać kolejne wrzucane monety
+        // when
+        cashHandler.insertCoin(Coin.COIN_OF_1);
+        cashHandler.insertCoin(Coin.COIN_OF_05);
+        cashHandler.insertCoin(Coin.COIN_OF_02);
+        cashHandler.insertCoin(Coin.COIN_OF_01);
 
+        // then
+        Assertions.assertThat(cashHandler.isInsertedCoinsEnoughToPay(requiredCash)).isTrue();
     }
 
     @Test

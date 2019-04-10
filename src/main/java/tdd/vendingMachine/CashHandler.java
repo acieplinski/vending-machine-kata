@@ -1,5 +1,7 @@
 package tdd.vendingMachine;
 
+import java.math.BigDecimal;
+
 public class CashHandler {
 
     private Purse purse;
@@ -22,5 +24,11 @@ public class CashHandler {
 
     public void giveCoinBack(Coin coin) {
         purse.getCoins().remove(coin);
+    }
+
+    public boolean isInsertedCoinsEnoughToPay(BigDecimal amountToPay) {
+        System.out.println(purse.getValue());
+        System.out.println(amountToPay);
+        return purse.getValue().compareTo(amountToPay) >= 0;
     }
 }
