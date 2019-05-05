@@ -1,6 +1,5 @@
 package tdd.vendingMachine;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,7 +50,7 @@ public class CashHandlerTest {
     @Test
     public void canPayWithProperAmountOfCoins() {
         // given
-        BigDecimal requiredCash = new BigDecimal(1.80);
+        BigDecimal requiredCash = new BigDecimal("1.80");
 
         // when
         cashHandler.insertCoin(Coin.COIN_OF_1);
@@ -60,7 +59,7 @@ public class CashHandlerTest {
         cashHandler.insertCoin(Coin.COIN_OF_01);
 
         // then
-        Assertions.assertThat(cashHandler.isInsertedCoinsEnoughToPay(requiredCash)).isTrue();
+        assertThat(cashHandler.isInsertedCoinsEnoughToPay(requiredCash)).isTrue();
     }
 
     @Test
