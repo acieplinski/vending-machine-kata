@@ -27,4 +27,18 @@ public class Purse {
 
         return value;
     }
+
+    public Coin takeAvailableCoinOfTheHighestValue(BigDecimal changeToGive) throws UnavailableCoinException {
+        for (Coin c: Coin.values()) {
+            System.out.println("Checking coin: " + c.value);
+            if (c.value.compareTo(changeToGive) <= 0
+                && coins.contains(c)) {
+                System.out.println("Bank returning coin: " + c.value);
+                System.out.println("There were: " + coins.getCount(c) + " of that coin");
+                coins.remove(c);
+                return c;
+            }
+        }
+        throw new UnavailableCoinException();
+    }
 }

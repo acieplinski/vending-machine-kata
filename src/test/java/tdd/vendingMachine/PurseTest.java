@@ -23,7 +23,7 @@ public class PurseTest {
         purse.getCoins().add(Coin.COIN_OF_1,2);
 
         // then
-        assertThat(purse.getValue()).isEqualTo("9.0");
+        assertThat(purse.getValue()).isEqualTo("9.00");
 
         //testy:
         //załóż stan początkowy wrzutnika
