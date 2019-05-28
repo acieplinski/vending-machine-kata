@@ -76,6 +76,11 @@ public class CashHandlerTest {
         // then
         assertThat(cashHandler.isInsertedCoinsEnoughToPay(requiredCash)).isTrue();
         assertThat(cashHandler.canGiveTheChangeBack(requiredCash)).isTrue();
+        assertThat(cashHandler.giveTheChangeBack().getCoins())
+            .isEqualTo(new PurseBuilder()
+                .withCoin(Coin.COIN_OF_01)
+                .build()
+                .getCoins());
     }
 
     @Test
@@ -93,6 +98,13 @@ public class CashHandlerTest {
         // then
         assertThat(cashHandler.isInsertedCoinsEnoughToPay(requiredCash)).isTrue();
         assertThat(cashHandler.canGiveTheChangeBack(requiredCash)).isTrue();
+        assertThat(cashHandler.giveTheChangeBack().getCoins())
+            .isEqualTo(new PurseBuilder()
+                .withCoin(Coin.COIN_OF_01)
+                .withCoin(Coin.COIN_OF_02)
+                .withCoin(Coin.COIN_OF_05)
+                .build()
+                .getCoins());
     }
 
     @Test
